@@ -1,0 +1,106 @@
+---
+title: "Getting and Cleaning Data Course Project"
+author: "Mike Gessner"
+date: "4/9/2018"
+output: html_document
+---
+
+## Data dictionary
+
+All variables, except Subject and Activity, are the mean values for a subject in an activity based on variables that are the mean or standard deviation from the original dataset. The original data come from the accelerometer and gyroscpe 3-axial raw signals. 
+
+1) Subject: An identifier for the subject of the experiment. Number ranges from 1 to 30, representing 30 total subjects
+
+2) Activity: Descriptive labes describing the type of activity a subject is performing
+    1) WALKING
+    2) WALKING_UPSTIARS
+    3) WALKING_DOWNSTAIRS
+    4) SITTING
+    5) STANDING
+    6) LAYING
+    
+3-5) MeanBodyAccTime_Xaxis/Yaxis/Axis: Values in these 3 columns represent the average of the Body Acceleration in Time         based on X, Y, and Z axes for a subject in an activity
+
+6-8) MeanGravityAccTime_Xaxis/Yaxis/Zaxis: Values in these 3 columns represent the average of the Gravity Acceleration in       Time based on X, Y, and Z axes for a subject in an activity
+
+9-11) MeanBodyAccJerkTime_Xaxis/Yaxis/Zaxis: Values in these 3 columns represent the average of Body Acceleration Jerk          signals in time for the X, Y, and Z axes for a subject in an activity
+
+12-14) MeanBodyGyroTime_Xaxis/Yaxis/Zaxis: Values in these 3 columns reprsent the average of Body Gyroscope in time for the     X, Y, and Z axes for a subject in an activity
+
+15-17) MeanBodyGyroJerkTime_Xaxis/Yaxis/Zaxis: Values in these 3 columns represent the average fo the Body Gyroscope Jerk in     time for the X, Y, and Z axis for a subject in an activity
+
+18) MeanBodyAccMagnitude_Time: the mean of mean body acceleration magnitude in time for a subject in an activity
+
+19) MeanGravityAccMagnitude_Time: the mean of the mean gravity acceleration magnitude in time for a subject in an activity
+
+20) MeanBodyAccJerkMagnitude_Time: the mean of the mean body acceleration jerk magnitude in time for a subject in an            activity
+
+21) MeanGyroMagnitude_Time: the mean of the mean gyroscope magnitude in time for a subject in an activity
+
+22) MeanBodyGyroJerkMagnitude_Time: the mean of the mean body gyroscope jerk magnitude in time for a subject in an acivity
+
+23-25) MeanFFTBodyAcc_Xaxis/Yaxis/Zaxis: the mean of the mean of the fast fourier transform (FFT) for the body acceleration     on the X, Y, and Z axes for a subject in an activity
+
+26-28) MeanFFTBodyAccFreq_Xaxis/Yaxis/Zaxis: the mean of the mean of the FFT for the body acceleration frequency on the X,      Y, and Z axes for a subject in an activity
+
+29-31) MeanFFTBodyAccJerk_Xaxis/Yaxis/Zaxis: the mean of the mean of the FFT for the body acceleration jerk on the X, Y, and     Z axes for a subject in an activity
+
+32-34) MeanFFTBodyAccJerkFreq_Xaxis/Yaxis/Zaxis: the mean of the mean of the FFT for the body acceleration jerk frequency on     the X, Y, and Z axes for a subject in an activity
+
+35-37) MeanFFTBodyGyro_Xaxis/Yaxis/Zaxis: the mean of the mean of the FFT Body Gyroscope on the X, Y, and Z axes for a          subject in an activity
+
+38-40) MeanFFTBodyGyroFreq_Xaxis/Yaxis/Zaxis: the mean of the mean of the FFT Body Gyroscope Frequency on the X, Y, and Z       axes for a subject in an activity
+
+41) MeanFFTBodyAccMagnitude: the mean of the mean FFT Body Acceleration Magnitude for a subject in an activity
+
+42) MeanFFTBodyAccMagFreq: the mean of the mean FFT body acceleration magnitude frequence for a subject in an activity
+
+43) MeanFFTBodyAccJerkMagnitude: the mean of the mean FFT body acceleration jerk magnitude for a subject in an activity
+
+44) MeanFFTBodyAccJerkMagFreq: the mean of the mean FFT body acceleration jerk magnitude frequency for a subject in an a        activity
+
+45) MeanFFTBodyGyroMagnitude: the mean of the mean FFT body gyroscope magnitude for a subject in an activity
+
+46) MeanFFTBodyGyroJerkMagnitude: the mean of the mean FFT body gyroscope jerk magnitude for a subject in an activity
+
+47) MeanFFTBodyGyroMagFreq: the mean of the mean FFT body gyroscope magnitude frequency for a subject in an activity
+
+48) MeanFFTBodyGyroJerkMagFreq: the mean of the mean fFT body gyroscope jerk magnitude frequency for a subject in an            activity
+
+49-51) SDBodyAccTime_Xaxis/Yaxis/Zaxis: the mean of the standard deviation body acceleration in time on the X, Y, and Z axes     for a subject in an activity
+
+52-54) SDGravityAccTime_Xaxis/Yaxis/Zaxis: the mean of the standard deviation gravity acceleration in time on the X, Y, and     Z axes for a suject in an acitivity
+
+55-57) SDBodyAccJerkTime_Xaxis/Yaxis/Zaxis: the mean of the standard deviation body accelertaion jerk in time on the X, Y,      and Z axes for a subject in an activity
+
+58-60) SDBodyGyroTime_Xaxis/Yaxis/Zaxis: the mean of the standard deviation body gyroscope in time on the X, Y, and Z axes      for a subject in an activity
+
+61-63) SDBodyGyroJerkTime_Xaxis/Yaxis/Zaxis: the mean of the standard deviation body gyroscope jerk in time on the X, Y, and     Z axes for a subject in an activity
+
+64) SDBodyAccMagnitude_Time: the mean of the standard deviation body accelertaion magnitude in time for a subject in an         activity
+
+65) SDGravityAccMagnitude_Time: the mean of the standard deviation gravity acceleration magnitude in time for a subject in      an activity
+
+66) SDBodyAccJerkMagnitude_Time: the mean of the standard deviation body acceleration jerk magnitude in time for a subject      in an activity
+
+67) SDBodyGyroMagnitude_Time: the mean of the standard deviation body gyroscope magnitude in time for a subject in an           activity
+
+68) SDBodyGyroJerkMagnitude_Time: the mean of the standard deviation body gyroscope jerk magnitude in time for a subject in     an activity
+
+68) SDGravityAccMagnitude_Time: the mean of the standard deviation gravity acceleration magnitude in time for a subject in      an activity
+
+69-71) SDFFTBodyAcc_Xaxis/Yaxis/Zaxis: the mean of the standard deviation FFT body acceleration on the X, Y, and Z axes for     a subject in an activity
+
+72-74) SDFFTBodyAccJerk_Xaxis/Yaxis/Zaxis: the mean of the standard deviation FFT body acceleration jerk on the X, Y, and Z     axes for a subject in an activity
+
+75-77) SDFFTBodyGyro_Xaxis/Yaxis/Zaxis: the mean of the standard deviation FFT body gyroscope on the X, Y, and Z axes for a     subject in an activity
+
+78) SDFFTBodyAccMagnitude: the mean of the standard deviatin FFT body acceleration magnitude for a subject in an activity
+
+79) SDFFTBodyAccJerkMagnitude: the mean of the standard deviation FFT body acceleration jerk magnitude for a subject in an      activity
+
+80) SDFFTBodyGyroMagnitude: the mean of the standard deviation FFT body gyroscope magnitude for a subject in an activity
+
+81) SDFFTBodyGyroJerkMagnitude: the mean of the standard deviation FFT body gyroscope jerk magnitude for a subject in an            activity
+
+
