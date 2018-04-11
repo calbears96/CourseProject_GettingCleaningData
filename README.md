@@ -13,12 +13,6 @@ Data is based on Human Activity Recognition Using Smartphones Dataset. It includ
   5. subject_train
   6. subject_test
   7. features.txt
-    
-Numbered list:
-
-  1. wash
-  2. rinse
-  3. repeat    
 
 Goal is to combine all the datasets above into one tidy dataset. The data in the
 x_test/train data contains sensor signal data (3 axis linear acceleration, gyroscope)
