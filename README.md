@@ -7,7 +7,7 @@ Version 1.0
 
 Data is based on Human Activity Recognition Using Smartphones Dataset. It includes:
     1 x_train
-    2. y_train
+    2 y_train
     3. x_test
     4. y_test
     5. subject_train
@@ -27,7 +27,7 @@ The dataset includes the following files:
 
 - run_analysis.R: an R script that creates the completed tidy dataset from the raw files.
       Steps:
-      1 Read in the x_test, y_test, subject_test, x_train, y_train, subject_train data
+      1. Read in the x_test, y_test, subject_test, x_train, y_train, subject_train data
       2. Read in the features.txt to obtain column names for step 1 (x_test, x_train)
       3. combine test and train data using rbind (x_train, x_test) [in this order]
       4. Determine the columns in the resulting data that are either mean or SD
